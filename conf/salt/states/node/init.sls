@@ -14,6 +14,13 @@ npm-packages:
     - names:
       - bower
       - grunt-cli
-      - yo
     - require:
       - pkgrepo: npm-repo
+      - pkg: nodejs
+
+yeoman:
+  npm.installed:
+  - name:
+    - yo
+  - require:
+    - npm: npm-packages
