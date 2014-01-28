@@ -12,15 +12,9 @@ nodejs:
 npm-packages:
   npm.installed:
     - names:
-      - bower
-      - grunt-cli
+      - yo
+      - generator-webapp
     - require:
       - pkgrepo: npm-repo
       - pkg: nodejs
-
-yeoman:
-  npm.installed:
-  - name:
-    - yo
-  - require:
-    - npm: npm-packages
+      - pkg: python
