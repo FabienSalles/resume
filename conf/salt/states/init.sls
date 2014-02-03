@@ -1,5 +1,6 @@
 include:
+  - .tools
   - .python
   - .node
   - .ruby
-  - .tools
+  - .mongodb
