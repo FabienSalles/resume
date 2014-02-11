@@ -8,4 +8,4 @@ before_script:
   - www/npm install
   - www/bower install
 after_script:
-	- 'echo after_script'
+	- echo 'after_script'
