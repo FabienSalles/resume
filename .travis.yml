@@ -5,7 +5,9 @@ node_js:
   - "0.8"
 before_script:
   - echo 'before_script'
-  - www/npm install
-  - www/bower install
+  - cd www
+  - npm install
+  - bower install
 after_script:
   - echo 'after_script'
+  - cd ../
