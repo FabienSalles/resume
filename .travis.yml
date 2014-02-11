@@ -4,8 +4,8 @@ node_js:
   - "0.10"
   - "0.8"
 before_script:
-	- 'cd www/'
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
+	- echo 'before_script'
+  - www/npm install
+  - www/bower install
 after_script:
-	- 'cd ../'
+	- 'echo after_script'
