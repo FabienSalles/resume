@@ -4,3 +4,4 @@ include:
   - .node
   - .ruby
   - .mongodb
+  - .phantomjs
