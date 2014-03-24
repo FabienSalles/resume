@@ -6,9 +6,7 @@ node_js:
 before_script:
   - echo 'before_script'
   - cd www
-  - npm install -g bower
-  - npm install
-  - bower install
+  - npm install -g grunt-cli
 after_script:
   - echo 'after_script'
   - cd ../
