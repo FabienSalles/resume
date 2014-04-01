@@ -1,4 +1,4 @@
-# resume
+# resume [![Build Status](http://travis-ci.org/[FabienSalles]/[resume].png)](http://travis-ci.org/[FabienSalles]/[resume])
 
 Project to create dynamically resume with Nodejs, AngularJS, SaltStack, Vagrant ...
 
