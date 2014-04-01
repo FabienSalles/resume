@@ -48,9 +48,30 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: ['PhantomJS'],
 
+    reporters: ['coverage'],
+
+    coverageReporter: {
+        type: "lcov",
+        dir: "coverage/"
+    },
+
+    // // plugins: [
+    // //     'karma-coverage',
+    // //     'karma-jasmine',
+    // // ],
+    // // coverage reporter generates the coverage
+    // // reporters: ['progress', 'coverage'],
+
+    // preprocessors: {
+    //   // source files, that you wanna generate coverage for
+    //   // do not include tests or libraries
+    //   // (these files will be instrumented by Istanbul)
+    //   'app/scripts/*.js' : ['coverage'],
+    //   'app/scripts/**/*.js' : ['coverage'],
+    // },
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };

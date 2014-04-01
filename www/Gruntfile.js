@@ -379,8 +379,19 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+
+    coveralls: {
+      options: {
+          debug: true,
+          coverage_dir: 'coverage',
+          dryRun: true,
+          force: true
+      }
     }
   });
+  
+  grunt.loadNpmTasks('grunt-karma-coveralls');
 
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
     this.async();
@@ -411,7 +422,8 @@ module.exports = function (grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
-    'karma'
+    'karma',
+    'coveralls'
   ]);
 
   grunt.registerTask('build', [
