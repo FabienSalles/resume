@@ -6,7 +6,8 @@ node_js:
 before_script:
   - echo 'before_script'
   - cd www
-  - npm install -g grunt-cli
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 after_script:
   - echo 'after_script'
   - cd ../
