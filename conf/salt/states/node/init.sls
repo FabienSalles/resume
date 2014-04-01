@@ -15,6 +15,7 @@ npm-packages:
       - yo
       - generator-webapp
       - generator-angular-fullstack
+      - generator-projectfiles
     - require:
       - pkgrepo: npm-repo
       - pkg: nodejs
