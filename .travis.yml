@@ -17,5 +17,7 @@ install:
   - cd www
   - bower install
   - npm install
+script:
   - grunt test
+after_script:
   - grunt coveralls
