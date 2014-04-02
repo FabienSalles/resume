@@ -382,10 +382,10 @@ module.exports = function (grunt) {
     },
 
     coveralls: {
+      src: 'coverage/lcov.info',
       options: {
           debug: true,
           coverage_dir: 'coverage',
-          src: 'coverage/lcov.info',
           dryRun: true,
           force: true
       }
