@@ -13,6 +13,7 @@ before_install:
   - gem install sass --version "=3.2.12"
   - gem install compass --version "=0.12.2"
   - npm install -g grunt-cli bower
+  - npm install -g istanbul
 install:
   - cd www
   - bower install
