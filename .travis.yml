@@ -18,5 +18,4 @@ install:
   - bower install
   - npm install
   - grunt test
-after_install:
   - grunt coveralls
