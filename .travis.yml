@@ -13,11 +13,11 @@ before_install:
   - npm install -g istanbul
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-install:
+before_script:
   - cd www
   - bower install
   - npm install
 script:
   - grunt test
-after_script:
+after_success:
   - grunt coveralls
