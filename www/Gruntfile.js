@@ -424,7 +424,6 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'karma',
-    'coveralls'
   ]);
 
   grunt.registerTask('build', [
