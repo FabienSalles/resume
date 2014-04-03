@@ -20,8 +20,10 @@ before_script:
   - bower install
   - npm install
 script:
-  - istanbul cover -- grunt test && grunt coveralls
+  - grunt test
 notifications:
   email: false
 after_success:
-  - grunt coveralls
+  - ls -ail coverage/
+  - ls coverage/PhantomJS\ 1.9.7\ \(Linux\)/
+  - cat ./coverage/PhantomJS\ 1.9.7\ \(Linux\)/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage

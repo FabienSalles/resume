@@ -8,7 +8,8 @@
     "mongoose-unique-validator": "~0.3.0",
     "connect-mongo": "~0.4.0",
     "passport": "latest",
-    "passport-local": "latest"
+    "passport-local": "latest",
+    "coveralls": "~2.10.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
