@@ -20,3 +20,6 @@ script:
   - istanbul cover -- grunt test && grunt coveralls
 notifications:
   email: false
+after_success:
+  - ls -ail coverage/PhantomJS\ 1.9.7\ \(Linux\)/
+  - grunt coveralls
