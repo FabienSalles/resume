@@ -6,7 +6,7 @@ node_js:
   # - "0.8"
 env:
   global:
-    - COVERALLS_SERVICE_NAME="TravisCI"
+    - COVERALLS_SERVICE_NAME=travis-ci COVERALLS_REPO_TOKEN=4tyQAaqxQZhhwtrK2uUOZseZ7Y3xFpOAM
 before_install:
   - sudo apt-get update 
   - gem update --system
