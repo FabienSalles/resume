@@ -54,7 +54,7 @@
     "karma": "~0.10.9",
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "karma-coverage": "~0.2.1",
-    "grunt-karma-coveralls": "~2.4.3"
+    "grunt-karma-coveralls": "~2.4.0"
   },
   "engines": {
     "node": ">=0.10.0"
