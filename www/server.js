@@ -19,6 +19,7 @@ var config = require('./lib/config/config');
 var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Bootstrap models
+// Model BDD
 var modelsPath = path.join(__dirname, 'lib/models');
 fs.readdirSync(modelsPath).forEach(function (file) {
   require(modelsPath + '/' + file);
@@ -41,6 +42,7 @@ require('./lib/routes')(app);
 // Start server
 app.listen(config.port, function () {
   console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
+  console.log(process.env.NODE_ENV);
 });
 
 // Expose app

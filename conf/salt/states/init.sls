@@ -5,3 +5,4 @@ include:
   - .ruby
   - .mongodb
   - .phantomjs
+  - .wkhtmltopdf
