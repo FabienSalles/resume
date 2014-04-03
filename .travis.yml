@@ -20,7 +20,7 @@ before_script:
 script:
   - grunt test
 after_success:
-  - lis -ail coverage
+  - ls -ail coverage
   - grunt coveralls
 notifications:
   email: false

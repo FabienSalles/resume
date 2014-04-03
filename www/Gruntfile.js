@@ -382,7 +382,7 @@ module.exports = function (grunt) {
     },
 
     coveralls: {
-      src: 'coverage/lcov.info',
+      src: 'coverage/PhantomJS\ 1.9.7\ \(Linux\)/lcov.info',
       options: {
           debug: true,
           coverage_dir: 'coverage',
