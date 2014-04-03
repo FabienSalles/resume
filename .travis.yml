@@ -20,4 +20,6 @@ before_script:
 script:
   - grunt test
 after_success:
+  - ls -ail
+  - lis -ail coverage
   - grunt coveralls
