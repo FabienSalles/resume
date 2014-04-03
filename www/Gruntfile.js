@@ -382,17 +382,14 @@ module.exports = function (grunt) {
     },
 
     coveralls: {
-      src: 'coverage/PhantomJS\ 1.9.7\ \(Linux\)/lcov.info',
       options: {
-          debug: true,
-          coverage_dir: 'coverage',
-          dryRun: true,
+          src: 'coverage/PhantomJS\ 1.9.7\ \(Linux\)/lcov.info',
           force: true
       }
     }
   });
   
-  grunt.loadNpmTasks('grunt-karma-coveralls');
+  grunt.loadNpmTasks('grunt-coveralls');
 
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
     this.async();
