@@ -16,6 +16,7 @@ npm-packages:
       - generator-webapp
       - generator-angular-fullstack
       - generator-projectfiles
+      - istanbul
     - require:
       - pkgrepo: npm-repo
       - pkg: nodejs

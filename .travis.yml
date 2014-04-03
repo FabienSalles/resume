@@ -18,9 +18,6 @@ before_script:
   - bower install
   - npm install
 script:
-  - grunt test
-after_success:
-  - ls -ail coverage
-  - grunt coveralls
+  - istanbul cover -- grunt test && grunt coveralls
 notifications:
   email: false
