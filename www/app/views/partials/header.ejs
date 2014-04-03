@@ -1,0 +1,32 @@
+<div id="header" class="row">
+    <div class="col-sm-2 col-xs-12">
+      <img src="images/avatar.jpg" alt="Avatar" class="thumbnail img-responsive">
+    </div>
+    <div class="col-sm-6 col-xs-12">      
+      <div ng-controller="EditCtrl">
+        <a href="#" editable-text="user.name" onbeforesave="updateName($data)">
+          <h2 class="inline">{{ user.name || "Nom" }} </h2>
+        </a>
+        <a href="#" editable-text="user.firstname" onbeforesave="updateFirstname($data)">
+          <h2 class="inline">{{ user.firstname || "Prénom" }}</h2>
+        </a>
+        <a href="#" editable-text="user.intitule" onbeforesave="updateIntitule($data)">
+          <h3>{{ user.intitule || "Intitulé" }}</h3>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <address>
+        <strong>Nom Prénom</strong><br>
+        Adresse<br>
+        Ville CP<br>
+        <i class="fa fa-phone"></i> 0130...<br>
+        <i class="fa fa-envelope"></i> <a href="mailto:email@site.com">email@site.com</a>
+      </address>
+
+		<a href="#" class="social-icon soc-facebook animated fadeInDown animation-delay-3"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social-icon soc-twitter animated fadeInDown animation-delay-3"><i class="fa fa-twitter"></i></a>
+		<a href="#" class="social-icon soc-google-plus animated fadeInDown animation-delay-3"><i class="fa fa-google-plus"></i></a>
+
+	</div>
+</div>

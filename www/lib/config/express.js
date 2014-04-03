@@ -37,7 +37,7 @@ module.exports = function(app) {
 
   app.configure(function(){
     app.engine('html', require('ejs').renderFile);
-    app.set('view engine', 'html');
+    app.set('view engine', 'ejs');
     app.use(express.logger('dev'));
     app.use(express.json());
     app.use(express.urlencoded());

@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('wwwApp', [
+var app = angular.module('wwwApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'xeditable'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -24,6 +25,10 @@ angular.module('wwwApp', [
         templateUrl: 'partials/settings',
         controller: 'SettingsCtrl',
         authenticate: true
+      })
+      .when('/edit', {
+        templateUrl: 'partials/edit',
+        controller: 'EditCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -56,3 +61,9 @@ angular.module('wwwApp', [
       }
     });
   });
+
+
+
+app.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+});
