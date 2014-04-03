@@ -4,6 +4,9 @@ node_js:
   # - "0.11"
   - "0.10"
   # - "0.8"
+env:
+  global:
+    - COVERALLS_SERVICE_NAME="TravisCI"
 before_install:
   - sudo apt-get update 
   - gem update --system
@@ -21,5 +24,4 @@ script:
 notifications:
   email: false
 after_success:
-  - ls -ail coverage/PhantomJS\ 1.9.7\ \(Linux\)/
   - grunt coveralls
