@@ -1,5 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/fabiensalles/resume.png?label=ready&title=Ready)](https://waffle.io/fabiensalles/resume)
-# [![Build Status](http://travis-ci.org/FabienSalles/resume.png)](http://travis-ci.org/FabienSalles/resume) [![Coverage Status](https://coveralls.io/repos/FabienSalles/resume/badge.png)](https://coveralls.io/r/FabienSalles/resume) [![Code Climate](https://codeclimate.com/github/FabienSalles/resume.png)](https://codeclimate.com/github/FabienSalles/resume)
+[![Stories in Ready](https://badge.waffle.io/fabiensalles/resume.png?label=ready&title=Ready)](https://waffle.io/fabiensalles/resume) [![Build Status](http://travis-ci.org/FabienSalles/resume.png)](http://travis-ci.org/FabienSalles/resume) [![Coverage Status](https://coveralls.io/repos/FabienSalles/resume/badge.png)](https://coveralls.io/r/FabienSalles/resume) [![Code Climate](https://codeclimate.com/github/FabienSalles/resume.png)](https://codeclimate.com/github/FabienSalles/resume) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/FabienSalles/resume/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 # resume 
 
 Project to create dynamically resume with Nodejs, AngularJS, SaltStack, Vagrant ...
@@ -71,4 +70,3 @@ For more information on SemVer, please visit <http://semver.org/>.
 ## License
 
 Licensed under [MIT](LICENSE).
-
