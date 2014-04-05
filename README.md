@@ -71,3 +71,7 @@ For more information on SemVer, please visit <http://semver.org/>.
 
 Licensed under [MIT](LICENSE).
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/FabienSalles/resume/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
