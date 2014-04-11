@@ -72,7 +72,7 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
           '<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}',
         ],
-      
+
         options: {
           livereload: true
         }
@@ -155,9 +155,9 @@ module.exports = function (grunt) {
     },
 
     // Automatically inject Bower components into the app
-    'bower-install': {
+    bowerInstall: {
       app: {
-        html: '<%= yeoman.app %>/views/index.html',
+        src: '<%= yeoman.app %>/views/index.ejs',
         ignorePath: '<%= yeoman.app %>/',
         exclude: ['sass-bootstrap']
       }
@@ -376,22 +376,21 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'karma.conf.js',
-        singleRun: true
+        configFile: 'karma.conf.js'
       }
-    },
+    // },
 
-    coveralls: {
-      options: {
-          debug: true,
-          coverage_dir: 'coverage',
-          dryRun: true,
-          force: true
-      }
+    // coveralls: {
+    //   options: {
+    //       debug: true,
+    //       coverage_dir: 'coverage',
+    //       dryRun: true,
+    //       force: true
+    //   }
     }
   });
-  
-  grunt.loadNpmTasks('grunt-karma-coveralls');
+
+  // grunt.loadNpmTasks('grunt-karma-coveralls');
 
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
     this.async();
@@ -404,7 +403,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'bower-install',
+      'bowerInstall',
       'concurrent:server',
       'autoprefixer',
       'express:dev',

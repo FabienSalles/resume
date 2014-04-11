@@ -20,8 +20,8 @@ module.exports = function(config) {
       'app/bower_components/angular-xeditable/dist/js/xeditable.min.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'tests/front/mock/**/*.js',
+      'tests/front/spec/**/*.js'
     ],
 
     // list of files / patterns to exclude
@@ -34,7 +34,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -51,20 +51,20 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: ['PhantomJS'],
 
-    coverageReporter: {
-        type: "lcov",
-        dir: "coverage/"
-    },
+    // coverageReporter: {
+    //     type: "lcov",
+    //     dir: "coverage/"
+    // },
 
     plugins:[
       'karma-jasmine',
-      'karma-coverage',
+      // 'karma-coverage',
       'karma-phantomjs-launcher'
     ],
 
-    reporters: ['progress', 'coverage'],
+    // reporters: ['progress', 'coverage'],
 
-    preprocessors: { 'app/scripts/**/*.js': ['coverage'] },
+    // preprocessors: { 'app/scripts/**/*.js': ['coverage'] },
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

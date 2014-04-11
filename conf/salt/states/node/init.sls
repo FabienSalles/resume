@@ -17,6 +17,7 @@ npm-packages:
       - generator-angular-fullstack
       - generator-projectfiles
       - istanbul
+      - jasmine-node
     - require:
       - pkgrepo: npm-repo
       - pkg: nodejs
