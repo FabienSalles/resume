@@ -18,6 +18,7 @@ npm-packages:
       - generator-projectfiles
       - istanbul
       - jasmine-node
+      - jshint
     - require:
       - pkgrepo: npm-repo
       - pkg: nodejs
