@@ -1,32 +1,49 @@
-<div id="header" class="row">
+<div id="header" class="row" ng-controller="EditCtrl">
     <div class="col-sm-2 col-xs-12">
       <img src="images/avatar.jpg" alt="Avatar" class="thumbnail img-responsive">
     </div>
-    <div class="col-sm-6 col-xs-12">      
-      <div ng-controller="EditCtrl">
+    <div class="col-sm-6 col-xs-12">    
+
         <a href="#" editable-text="user.name" onbeforesave="updateName($data)">
-          <h2 class="inline">{{ user.name || "Nom" }} </h2>
+          <h2 class="inline" ng-model="user.name">{{ user.name || "Nom" }} </h2>
         </a>
         <a href="#" editable-text="user.firstname" onbeforesave="updateFirstname($data)">
           <h2 class="inline">{{ user.firstname || "Prénom" }}</h2>
         </a>
-        <a href="#" editable-text="user.intitule" onbeforesave="updateIntitule($data)">
+        <div>
+          <a href="#" editable-text="user.intitule" onbeforesave="updateIntitule($data)">
           <h3>{{ user.intitule || "Intitulé" }}</h3>
         </a>
-      </div>
+        </div>
     </div>
     <div class="col-sm-4 col-xs-12">
       <address>
-        <strong>Nom Prénom</strong><br>
-        Adresse<br>
-        Ville CP<br>
-        <i class="fa fa-phone"></i> 0130...<br>
-        <i class="fa fa-envelope"></i> <a href="mailto:email@site.com">email@site.com</a>
+        <strong>{{ user.name || "Nom" }} </strong><strong>{{ user.firstname || "Prénom" }}</strong><br>
+        <a href="#" editable-text="user.address" onbeforesave="updateAddresse($data)">
+          {{ user.address || "Adresse" }}
+        </a><br>
+        <a href="#" editable-text="user.city" onbeforesave="updateCity($data)">
+          {{ user.city || "Ville" }}
+        </a>
+        <a href="#" editable-text="user.cp" onbeforesave="updateCP($data)">
+          {{ user.cp || "CP" }}
+        </a><br>
+        <i class="fa fa-phone"></i> 
+        <a href="#" editable-text="user.phone" onbeforesave="updatePhone($data)">
+          {{ user.phone || "Téléphone" }}
+        </a><br>
+        <i class="fa fa-envelope"></i> 
+        <a href="#" editable-text="user.email" onbeforesave="updateEmail($data)">
+          {{ user.email || "Adresse mail" }}
+        </a>
       </address>
 
 		<a href="#" class="social-icon soc-facebook animated fadeInDown animation-delay-3"><i class="fa fa-facebook"></i></a>
 		<a href="#" class="social-icon soc-twitter animated fadeInDown animation-delay-3"><i class="fa fa-twitter"></i></a>
 		<a href="#" class="social-icon soc-google-plus animated fadeInDown animation-delay-3"><i class="fa fa-google-plus"></i></a>
 
+    <!-- <button ng-click="exportpdf()">Exporter</button> -->
+    <a href="/export">Exporter</a>
+    
 	</div>
 </div>

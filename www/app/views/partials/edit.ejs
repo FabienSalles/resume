@@ -32,14 +32,22 @@
         <div class="col-xs-12 col-sm-4">
           <h3 class="title-section">Compétences techniques</h3>
         </div>
-        <div class="col-xs-12 col-sm-8">
-          <h3 class="title-item">PHP</h3>
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, ullam, repudiandae itaque est impedit porro sapiente debitis repellendus provident similique laudantium dolorem atque ratione necessitatibus illum maiores temporibus optio nulla!</p>
+        <div class="col-xs-12 col-sm-8">         
 
-          <h3 class="title-item">HTML</h3>
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, ullam, repudiandae itaque est impedit porro sapiente debitis repellendus provident similique laudantium dolorem atque ratione necessitatibus illum maiores temporibus optio nulla!</p>
+          <div ng-repeat="skill in skills">
+          
+            
+              <h3 editable-text="skill.name" onbeforesave="checkName($data, skill.id)" class="title-item">{{ skill.name || 'Nom compétence' }}</h3>
+              <hr>
+              <p editable-textarea="skill.desc">{{ skill.desc || 'Description'}}</p>
+            
+
+
+          </div>
+          
+
+
+          <button class="btn btn-default" ng-click="addSkill()">Ajouter une compétence</button>
         </div>
 
       </div>

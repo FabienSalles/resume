@@ -30,6 +30,10 @@ var app = angular.module('wwwApp', [
         templateUrl: 'partials/edit',
         controller: 'EditCtrl'
       })
+      .when('/export', {
+        controller: 'EditCtrl',
+        action: 'export'
+      })
       .otherwise({
         redirectTo: '/'
       });

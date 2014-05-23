@@ -4,6 +4,16 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
+
+@font-face {
+    font-family: bariol-regular;
+    src: url('../fonts/Bariol_Regular.otf');
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: bariol-regular;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -177,4 +187,18 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
+}
+
+
+
+/* customize xeditable css */
+a.editable-click { 
+    color: inherit;
+    border-bottom: dotted 2px green;
+    font-style: normal;
+}
+a.editable-click:hover { 
+    color: inherit;
+    border-bottom-color: #47a447;
+    font-style: normal;
 }
