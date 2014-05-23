@@ -192,13 +192,14 @@ body {
 
 
 /* customize xeditable css */
-a.editable-click { 
+.editable-click { 
     color: inherit;
     border-bottom: dotted 2px green;
     font-style: normal;
 }
-a.editable-click:hover { 
+.editable-click:hover { 
     color: inherit;
     border-bottom-color: #47a447;
     font-style: normal;
+    cursor: pointer;
 }

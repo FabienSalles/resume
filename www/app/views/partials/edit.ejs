@@ -12,7 +12,7 @@
           <h3 class="title-section">Profil</h3>
         </div>
         <div class="col-xs-12 col-sm-8">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, ullam, repudiandae itaque est impedit porro sapiente debitis repellendus provident similique laudantium dolorem atque ratione necessitatibus illum maiores temporibus optio nulla!</p>
+          <p editable-textarea="user.profil" e-rows="5" e-cols="60">{{ user.profil || 'Mon profil' }}</p>
         </div>
 
       </div>
@@ -23,7 +23,7 @@
           <h3 class="title-section">Experiences</h3>
         </div>
         <div class="col-xs-12 col-sm-8">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, ullam, repudiandae itaque est impedit porro sapiente debitis repellendus provident similique laudantium dolorem atque ratione necessitatibus illum maiores temporibus optio nulla!</p>
+          <p editable-textarea="user.profil" e-rows="5" e-cols="60">{{ user.experience || 'Mon expérience' }}</p>
         </div>
 
       </div>
@@ -34,18 +34,13 @@
         </div>
         <div class="col-xs-12 col-sm-8">         
 
-          <div ng-repeat="skill in skills">
-          
+          <div ng-repeat="skill in user.skills">
             
               <h3 editable-text="skill.name" onbeforesave="checkName($data, skill.id)" class="title-item">{{ skill.name || 'Nom compétence' }}</h3>
               <hr>
-              <p editable-textarea="skill.desc">{{ skill.desc || 'Description'}}</p>
-            
-
+              <p editable-textarea="skill.desc" e-rows="5" e-cols="60">{{ skill.desc || 'Description'}}</p>
 
           </div>
-          
-
 
           <button class="btn btn-default" ng-click="addSkill()">Ajouter une compétence</button>
         </div>
@@ -58,10 +53,21 @@
           <h3 class="title-section">Diplomes</h3>
         </div>
         <div class="col-xs-12 col-sm-8">
-          <h3 class="title-item">BAC STI</h3>
-          <span class="pull-right">2008 - 2009</span>
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, ullam, repudiandae itaque est impedit porro sapiente debitis repellendus provident similique laudantium dolorem atque ratione necessitatibus illum maiores temporibus optio nulla!</p>
+
+
+
+
+         <div ng-repeat="diplome in user.diplomes">
+            
+              <h3 editable-text="diplome.name" onbeforesave="checkName($data, diplome.id)" class="title-item">{{ diplome.name || 'Nom diplôme' }}</h3>
+              <span class="pull-right">{{ diplome.year1 || 'Année début '}} - {{ diplome.year2 || 'Année fin' }}</span>
+              <hr>
+              <p editable-textarea="diplome.desc" e-rows="5" e-cols="60">{{ diplome.desc || 'Description'}}</p>
+
+          </div>
+
+          <button class="btn btn-default" ng-click="addDiplome()">Ajouter un diplôme</button>
+
         </div>
 
       </div>
