@@ -17,12 +17,12 @@ describe("Skill", function () {
   it("should return skill information", function () {
     var newSkill = Skill.model({
       name : "JAVA",
-      level : 4.5,
+      level : 4.5
     });
+    newSkill.save();
 
-    var skillInfo = newSkill.get('SkillInfo');
-    expect(skillInfo.name).toEqual("JAVA");
-    expect(skillInfo.level).toEqual(4.5);
+    expect(newSkill.name).toEqual("JAVA");
+    expect(newSkill.level).toEqual(4.5);
   });
 });
 
