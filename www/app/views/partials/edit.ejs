@@ -60,7 +60,8 @@
          <div ng-repeat="diplome in user.diplomes">
             
               <h3 editable-text="diplome.name" onbeforesave="checkName($data, diplome.id)" class="title-item">{{ diplome.name || 'Nom diplôme' }}</h3>
-              <span class="pull-right">{{ diplome.year1 || 'Année début '}} - {{ diplome.year2 || 'Année fin' }}</span>
+              <span editable-text="diplome.year2" class="pull-right">&nbsp;- {{ diplome.year2 || 'Année fin' }}</span>
+              <span editable-text="diplome.year1" class="pull-right">{{ diplome.year1 || 'Année début' }}</span>
               <hr>
               <p editable-textarea="diplome.desc" e-rows="5" e-cols="60">{{ diplome.desc || 'Description'}}</p>
 
