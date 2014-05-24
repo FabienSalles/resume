@@ -189,21 +189,37 @@ body {
     }
 }
 
+/* Marge pour les blocs ayant des boutons ajouter et supprimer */
+.blocEdition {
+    margin-bottom: 10px;
+}
 
 
 /* customize xeditable css */
-.editable-click { 
-    color: inherit;
-    border-bottom: dotted 2px green;
-    font-style: normal;
-}
+.editable-click,
 .editable-click:hover { 
     color: inherit;
-    border-bottom-color: #47a447;
     font-style: normal;
-    cursor: pointer;
 }
 
-.blocEdition {
-    margin-bottom: 10px;
+.editable-empty,
+.editable-empty:hover,
+.editable-empty:focus,
+a.editable-empty,
+a.editable-empty:hover,
+a.editable-empty:focus {
+    color: inherit;
+}
+
+.editable.editable-click.editable-empty.socialEdit,
+.editable-click.socialEdit {
+    color: #FFF;
+    border: 1px solid #576890;
+}
+
+.editable.editable-click.editable-empty.socialEdit:hover,
+.editable-click.socialEdit:hover {
+    color: #428BCA;
+    cursor: pointer;
+    border: 1px solid #576890;
 }

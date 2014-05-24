@@ -9,6 +9,9 @@ angular.module('wwwApp')
 		firstname: 'Yves',
 		profil: 'Je suis motivé!',
 		experience: 'Je suis un expert!',
+		facebook: 'https://www.facebook.fr/',
+		twitter: 'https://www.twitter.fr/',
+		google: 'https://www.google.fr/',
 		skills: [{
 	    	id: 1, name: 'PHP', desc: 'Mes compétences en PHP'
 	    },{
