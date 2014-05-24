@@ -34,15 +34,16 @@
         </div>
         <div class="col-xs-12 col-sm-8">         
 
-          <div ng-repeat="skill in user.skills">
+          <div class="blocEdition" ng-repeat="skill in user.skills">
             
               <h3 editable-text="skill.name" onbeforesave="checkName($data, skill.id)" class="title-item">{{ skill.name || 'Nom compétence' }}</h3>
               <hr>
               <p editable-textarea="skill.desc" e-rows="5" e-cols="60">{{ skill.desc || 'Description'}}</p>
+              <button class="btn btn-danger" ng-click="removeSkill()">Supprimer cette compétence</button>
 
           </div>
 
-          <button class="btn btn-default" ng-click="addSkill()">Ajouter une compétence</button>
+          <button class="btn btn-primary" ng-click="addSkill()">Ajouter une compétence</button>
         </div>
 
       </div>
@@ -57,17 +58,18 @@
 
 
 
-         <div ng-repeat="diplome in user.diplomes">
+         <div class="blocEdition" ng-repeat="diplome in user.diplomes">
             
               <h3 editable-text="diplome.name" onbeforesave="checkName($data, diplome.id)" class="title-item">{{ diplome.name || 'Nom diplôme' }}</h3>
               <span editable-text="diplome.year2" class="pull-right">&nbsp;- {{ diplome.year2 || 'Année fin' }}</span>
               <span editable-text="diplome.year1" class="pull-right">{{ diplome.year1 || 'Année début' }}</span>
               <hr>
               <p editable-textarea="diplome.desc" e-rows="5" e-cols="60">{{ diplome.desc || 'Description'}}</p>
+              <button class="btn btn-danger" ng-click="removeDiplome()">Supprimer ce diplôme</button>
 
           </div>
 
-          <button class="btn btn-default" ng-click="addDiplome()">Ajouter un diplôme</button>
+          <button class="btn btn-primary" ng-click="addDiplome()">Ajouter un diplôme</button>
 
         </div>
 

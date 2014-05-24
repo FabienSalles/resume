@@ -16,8 +16,8 @@ angular.module('wwwApp')
 	    }],
 	    diplomes: [{
 	    	id: 1,
-	    	name: "BAC STI",
-	    	desc: "J'ai passé mon bac au lycée."
+	    	name: 'BAC STI',
+	    	desc: 'J\'ai passé mon bac au lycée.'
 	    }]
 	};
 
@@ -46,17 +46,18 @@ angular.module('wwwApp')
   	$scope.save = function() {
   		$http.post('/sauvegarder', $scope.user).
   		success(function(data) {
+  			console.log(data);
   			$location.path('/');
   		}).error(function(err) {
   			$scope.errorMessage = err;
   		});
-  	}
+  	};
 
 
   	$scope.export = function() {
   		console.log('angular export');
   		$http.get('/export');
-  	}
+  	};
 
 
   	// Ajoute un champ pour saisir une compétence
@@ -76,6 +77,14 @@ angular.module('wwwApp')
 		};
 		$scope.user.diplomes.push($scope.inserted);
 	};
+
+	$scope.removeSkill = function(index) {
+    	$scope.user.skills.splice(index, 1);
+  	};
+
+  	$scope.removeDiplome = function(index) {
+    	$scope.user.diplomes.splice(index, 1);
+  	};
 
 });
 
