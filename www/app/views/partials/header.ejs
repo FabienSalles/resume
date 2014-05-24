@@ -1,6 +1,16 @@
 <div id="header" class="row" ng-controller="EditCtrl">
     <div class="col-sm-2 col-xs-12">
-      <img src="images/avatar.jpg" alt="Avatar" class="thumbnail img-responsive">
+
+        <div class="image-upload">
+          <form action="avatar" method="POST" enctype="multipart/form-data">
+            <label for="avatar" class="avatar">
+              <img src="images/avatar.jpg" alt="Avatar" class="thumbnail img-responsive">
+            </label>
+
+            <input type="file" id="avatar" name="useravatar" class="hide">
+          </form>
+        </div>
+      
     </div>
     <div class="col-sm-6 col-xs-12">    
 

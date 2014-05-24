@@ -223,3 +223,14 @@ a.editable-empty:focus {
     cursor: pointer;
     border: 1px solid #576890;
 }
+
+
+/* Avatar de l'user */
+.hide {
+    display: none;
+}
+
+label.avatar {
+    display: block;
+    cursor: pointer;
+}
