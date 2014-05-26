@@ -46,7 +46,7 @@ var DomainSkill = function() {
   return {
     schema : DomainSkillSchema,
     model  : _model
-  }
+  };
 }();
 
 module.exports = DomainSkill;

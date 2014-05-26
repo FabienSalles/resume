@@ -70,7 +70,7 @@ var Profile = function() {
   return {
     schema : ProfileSchema,
     model  : _model
-  }
+  };
 }();
 
 module.exports = Profile;

@@ -11,7 +11,8 @@ var express        = require('express'),
     cookieParser   = require('cookie-parser'),
     bodyParser     = require('body-parser'),
     session        = require('express-session'),
-    mongoStore     = require('connect-mongo')({session: session});
+    mongoStore     = require('connect-mongo')({session: session}),
+    multer         = require('multer');
 
 /**
  * Express configuration
@@ -50,6 +51,14 @@ module.exports = function(app) {
   app.use(bodyParser());
   app.use(methodOverride());
   app.use(cookieParser());
+  app.use(multer({
+    dest: './uploads/', // Repertoire d'upload temporaire
+    limits: {
+      fieldNameSize: 50,
+      files: 1,
+      fields: 5
+    }
+  }));
 
   // Persist sessions with mongoStore
   app.use(session({

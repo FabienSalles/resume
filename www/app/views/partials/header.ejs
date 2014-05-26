@@ -4,10 +4,11 @@
         <div class="image-upload">
           <form action="avatar" method="POST" enctype="multipart/form-data">
             <label for="avatar" class="avatar">
-              <img src="images/avatar.jpg" alt="Avatar" class="thumbnail img-responsive">
+              <!-- <img fallback-src="images/avatar.jpg" ng-src="{{ user.avatar }}" alt="Avatar" class="thumbnail img-responsive"> -->
+              <img ng-model="user.avatar" src="{{ user.avatar || 'images/avatar.jpg' }}" alt="Avatar" class="thumbnail img-responsive">
             </label>
 
-            <input type="file" id="avatar" name="useravatar" class="hide">
+            <input type="file" id="avatar" name="useravatar" class="hide" onchange="angular.element(this).scope().avatarChanged(this.files)">
           </form>
         </div>
       

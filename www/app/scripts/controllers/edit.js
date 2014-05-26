@@ -5,6 +5,7 @@ angular.module('wwwApp')
 
 
 	$scope.user = {
+		id: 1,
 		name: 'Renaud',
 		firstname: 'Yves',
 		profil: 'Je suis motivé!',
@@ -12,6 +13,7 @@ angular.module('wwwApp')
 		facebook: 'https://www.facebook.fr/',
 		twitter: 'https://www.twitter.fr/',
 		google: 'https://www.google.fr/',
+		//avatar: 'images/avatars/avatar_user.jpg', // TODO le rendre unique
 		skills: [{
 	    	id: 1, name: 'PHP', desc: 'Mes compétences en PHP'
 	    },{
@@ -88,6 +90,26 @@ angular.module('wwwApp')
   	$scope.removeDiplome = function(index) {
     	$scope.user.diplomes.splice(index, 1);
   	};
+
+  	$scope.avatarChanged = function(files) {
+
+  		var fd = new FormData();
+
+	    // Recupere le premier fichier
+	    fd.append('file', files[0]);
+
+	    $http.post('/api/avatar', fd, {
+	        withCredentials: true,
+	        headers: { 'Content-Type': undefined },
+	        transformRequest: angular.identity
+	    }).success(function(){
+	    	console.log('UPLOAD DONE');
+	    }).error(function(){
+	    	console.log('ERROR UPLOAD');
+	    });
+
+	};
+
 
 });
 

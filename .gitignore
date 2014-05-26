@@ -2,3 +2,4 @@ Vagrantfile
 .vagrant
 
 /www/temp.pdf
+www/app/images/avatars/*

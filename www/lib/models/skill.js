@@ -51,13 +51,13 @@ var Skill = function() {
       // .populate('domain')
       .exec(callback)
     ;
-  }
+  };
 
   return {
     schema          : SkillSchema,
     model           : _model,
     findByIdAndPopulate : _findByIdAndPopulate
-  }
+  };
 }();
 
 module.exports = Skill;
