@@ -24,9 +24,8 @@ module.exports = function(app) {
   app.get('/api/users/:id', users.show);
 
   app.post('/api/profiles', profiles.create);
-  app.get('/api/profiles/me', profiles.me);
-  app.get('/api/profiles/:id', profiles.show);
-  app.put('/api/profiles/:id', profiles.update);
+  app.get('/api/profiles', profiles.show);
+  app.put('/api/profiles', profiles.update);
 
   app.post('/api/session', session.login);
   app.del('/api/session', session.logout);

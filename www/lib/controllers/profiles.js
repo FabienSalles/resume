@@ -1,24 +1,20 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Profile = mongoose.model('Profile');
+    Profile = require('../models/profile');
 
 /**
  * Create profile
  */
 exports.create = function (req, res, next) {
-  var newProfile = new Profile(req.body);
+  var newProfile = new Profile.model(req.body);
 
-  newProfile.save(function(err) {
+  newProfile.save(function(err, profile) {
     if (err) {
-      // Manually provide our own message for 'unique' validation errors, can't do it from schema
-      if(err.errors.email.type === 'Value is not unique.') {
-        err.errors.email.type = 'The specified email address is already in use.';
-      }
       return res.json(400, err);
     }
-
-    return res.json(req.Profile.ProfileInfo);
+    console.log(newProfile, res);
+    return res.json(profile.get('ProfileInfo'));
   });
 };
 
@@ -26,13 +22,13 @@ exports.create = function (req, res, next) {
  *  Get profile of specified Profile
  */
 exports.show = function (req, res, next) {
-  var ProfileId = req.params.id;
 
-  Profile.findById(ProfileId, function (err, Profile) {
+  Profile.model.findOne({}, function (err, profile) {
+    console.log(profile);
     if (err) return next(new Error('Failed to load Profile'));
 
-    if (Profile) {
-      res.send({ profile: Profile.ProfileInfo });
+    if (profile) {
+      res.send({ profile: profile.get('ProfileInfo') });
     } else {
       res.send(404, 'PROFILE_NOT_FOUND');
     }
@@ -43,22 +39,15 @@ exports.show = function (req, res, next) {
  *  Update profile of specified Profile
  */
 exports.update = function (req, res, next) {
-  var ProfileId = req.params.id;
 
-  Profile.findByIdAndUpdate(ProfileId, req.body, function (err, Profile) {
+  Profile.model.findOneAndUpdate({}, req.body, function (err, profile) {
+    console.log(profile);
     if (err) return next(new Error('Failed to load Profile'));
 
-    if (Profile) {
-      res.send({ profile: Profile.ProfileInfo });
+    if (profile) {
+      res.send({ profile: profile.get('ProfileInfo') });
     } else {
       res.send(404, 'PROFILE_NOT_FOUND');
     }
   });
-};
-
-/**
- * Get current Profile
- */
-exports.me = function(req, res) {
-  res.json(req.Profile || null);
 };
