@@ -2,27 +2,33 @@
 
 describe('Controller: EditCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('wwwApp'));
+  var $scope, controller; 
+  
+  beforeEach(module('wwwApp')); 
 
-  var EditCtrl,
-    scope,
-    $httpBackend;
-
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function (_$httpBackend_, $controller, $rootScope) {
-    $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('/api/awesomeThings')
-      .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
-    scope = $rootScope.$new();
-    EditCtrl = $controller('EditCtrl', {
-      $scope: scope
-    });
+  beforeEach(inject(function ($rootScope, $controller) {  
+    $scope = $rootScope.$new();
+    controller = $controller('EditCtrl', { 
+      $scope: $scope
+    }); 
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings).toBeUndefined();
-    $httpBackend.flush();
-    expect(scope.awesomeThings.length).toBe(4);
+  it('should set save function', function() { 
+    expect($scope.save).toBeDefined();
   });
+
+  it('should set addSkill function', function() { 
+    expect($scope.addSkill).toBeDefined();
+  });
+
+  it('should set avatarChanged function', function() { 
+    expect($scope.avatarChanged).toBeDefined();
+  });
+
+  it('should call /api/avatar on $scope.avatarChanged()', inject(function($httpBackend) {
+    $scope.avatarChanged();
+    $httpBackend.expectPOST('/api/avatar').respond();
+    $httpBackend.flush();
+  }));
+
 });

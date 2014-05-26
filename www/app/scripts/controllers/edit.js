@@ -93,7 +93,7 @@ angular.module('wwwApp')
 
   	$scope.avatarChanged = function(files) {
 
-  		var fd = new FormData();
+		var fd = new FormData();
 
 	    // Recupere le premier fichier
 	    fd.append('file', files[0]);
