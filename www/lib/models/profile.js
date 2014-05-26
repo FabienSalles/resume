@@ -15,7 +15,7 @@ var Profile = function() {
     jobName: String,
     description: String,
     age: { type: Number, min: 18, max: 65 },
-    email: { type: String, unique: true },
+    email: { type: String, unique: true, required: true },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   });
