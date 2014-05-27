@@ -19,6 +19,8 @@ npm-packages:
       - istanbul
       - jasmine-node
       - jshint
+      - multer
+      - mocha
     - require:
       - pkgrepo: npm-repo
       - pkg: nodejs
