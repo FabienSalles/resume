@@ -7,29 +7,19 @@ angular.module('wwwApp')
 	$scope.errorMessage = '';
 
 	$http.get('/api/profiles').success(function(user) {
-		$scope.user = {
-			email: user.email,
-			name: user.lastName,
-			firstname: user.fisrtName,
-			phone: user.phoneNumber,
-			intitule: user.jobName,
-			age: user.age,
-			adress: user.adress,
-			city: user.city,
-			cp: user.cp,
-			avatar: user.avatar,
-			facebook: user.facebook,
-			twitter: user.twitter,
-			google: user.google,
-			description: user.description,
-			skills : [{
+
+		$scope.user = user;
+
+		// Mock
+		$scope.user.skills = [{
       			name: "PHP",
       			description: "lol"
     		},{
       			name: "JS",
       			description: "fdhdfghrsfdhg"
-    		}],
-    		diplomes : [{
+    		}];
+
+    	$scope.user.diplomes = [{
       			name: "BAC STI",
       			year1: 2000,
       			year2: 2002,
@@ -40,7 +30,6 @@ angular.module('wwwApp')
       			year2: 2011,
       			description: "Mon BTS"
     		}]
-		};
 		
     });
 
