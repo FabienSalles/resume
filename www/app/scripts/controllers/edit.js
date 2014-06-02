@@ -14,11 +14,13 @@ angular.module('wwwApp')
 			intitule: user.jobName,
 			age: user.age,
 			city: user.city,
+			adress: user.adress,
 			cp: user.cp,
 			avatar: user.avatar,
 			facebook: user.facebook,
 			twitter: user.twitter,
-			google: user.google
+			google: user.google,
+			description: user.description
 		};
 		
     });
@@ -91,6 +93,14 @@ angular.module('wwwApp')
 
 	$scope.updateTwitter = function(data) {
 		$http.put('/api/profiles', { 'twitter' : data });
+	};
+
+	$scope.updateDescription = function(data) {
+		$http.put('/api/profiles', { 'description' : data });
+	};
+
+	$scope.updateEmail = function(data) {
+		$http.put('/api/profiles', { 'email' : data });
 	};
 
 

@@ -12,7 +12,7 @@
           <h3 class="title-section">Profil</h3>
         </div>
         <div class="col-xs-12 col-sm-8">
-          <p editable-textarea="user.profil" e-rows="5" e-cols="60">{{ user.profil || 'Mon profil' }}</p>
+          <p editable-textarea="user.description" e-rows="5" e-cols="60" onbeforesave="updateDescription($data)">{{ user.description || 'Mon profil' }}</p>
         </div>
 
       </div>
