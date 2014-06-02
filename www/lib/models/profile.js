@@ -92,7 +92,7 @@ var Profile = function() {
 
   var _findAndUpdate = function _findAndUpdate(fields, callback){
     return _model.findOneAndUpdate({}, fields, callback);
-  }
+  };
 
   return {
     schema        : ProfileSchema,

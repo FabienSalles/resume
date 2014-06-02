@@ -49,7 +49,7 @@ module.exports = function(app) {
   app.set('view engine', 'ejs');
   app.use(logger('dev'));
   app.use(bodyParser());
-  app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
+  app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
   app.use(methodOverride());
   app.use(cookieParser());
   app.use(multer({

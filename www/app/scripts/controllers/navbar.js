@@ -11,6 +11,9 @@ angular.module('wwwApp')
     }, {
       'title': 'Voir',
       'link': '/show'
+    },{
+      'title': 'Exporter',
+      'link': '/pdf'
     }];
     
     $scope.logout = function() {
