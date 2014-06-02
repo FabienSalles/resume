@@ -6,6 +6,9 @@ var api = require('./controllers/api'),
     pdf = require('./controllers/pdf'),
     edit = require('./controllers/edit'),
     profiles = require('./controllers/profiles'),
+    skills = require('./controllers/skills'),
+    experiences = require('./controllers/experiences'),
+    languages = require('./controllers/languages'),
     session = require('./controllers/session');
 
 var middleware = require('./middleware');
@@ -23,9 +26,17 @@ module.exports = function(app) {
   app.get('/api/users/me', users.me);
   app.get('/api/users/:id', users.show);
 
-  app.post('/api/profiles', profiles.create);
-  app.get('/api/profiles', profiles.show);
-  app.put('/api/profiles', profiles.update);
+  app
+    .post('/api/profiles', profiles.create)
+    .get('/api/profiles', profiles.show)
+    .put('/api/profiles', profiles.update)
+  ;
+
+  app.post('/api/skills', skills.create);
+
+  app.post('/api/experiences', experiences.create);
+
+  app.post('/api/languages', languages.create);
 
   app.post('/api/session', session.login);
   app.del('/api/session', session.logout);

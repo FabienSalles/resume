@@ -23,12 +23,12 @@ exports.create = function (req, res, next) {
  */
 exports.show = function (req, res, next) {
 
-  Profile.model.findOne({}, function (err, profile) {
+  Profile.find(function (err, profile) {
     console.log(profile);
     if (err) return next(new Error('Failed to load Profile'));
 
     if (profile) {
-      res.send({ profile: profile.get('ProfileInfo') });
+      res.send(profile.get('ProfileInfo'));
     } else {
       res.send(404, 'PROFILE_NOT_FOUND');
     }
@@ -40,12 +40,12 @@ exports.show = function (req, res, next) {
  */
 exports.update = function (req, res, next) {
 
-  Profile.model.findOneAndUpdate({}, req.body, function (err, profile) {
+  Profile.findAndUpdate(req.body, function (err, profile) {
     console.log(profile);
     if (err) return next(new Error('Failed to load Profile'));
 
     if (profile) {
-      res.send({ profile: profile.get('ProfileInfo') });
+      res.send(profile.get('ProfileInfo'));
     } else {
       res.send(404, 'PROFILE_NOT_FOUND');
     }

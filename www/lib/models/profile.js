@@ -2,7 +2,6 @@
 
 var Profile = function() {
   var mongoose = require('mongoose'),
-    uniqueValidator = require('mongoose-unique-validator'),
     Schema = mongoose.Schema;
 
   /**
@@ -23,8 +22,28 @@ var Profile = function() {
     avatar: { type: String, default: 'images/avatar.jpg' },
     age: { type: Number, min: 18, max: 65 },
     email: { type: String, unique: true, required: true },
+    skills : [{
+      name: { type: String, unique: true, required: true },
+      level: { type: Number, min: 0, max: 5 },
+    }],
+    experiences: [{
+      name: String,
+      description: String,
+      startAt: Date,
+      endAt: Date,
+      // tags: [{
+      //   name: String
+      // }]
+    }],
+    pastimes: [{
+      name: String
+    }],
+    languages: [{
+      name: String,
+      level: String
+    }],
     createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
   });
 
 
@@ -53,20 +72,6 @@ var Profile = function() {
     })
   ;
 
-
-  /**
-   * Validations
-   */
-  var validatePresenceOf = function(value) {
-    return value && value.length;
-  };
-
-
-  /**
-   * Plugins
-   */
-  ProfileSchema.plugin(uniqueValidator,  { message: 'Value is not unique.' });
-
   /**
    * Pre-save hook
    */
@@ -81,9 +86,19 @@ var Profile = function() {
 
   var _model = mongoose.model('Profile', ProfileSchema);
 
+  var _find = function _find(callback) {
+    return _model.findOne({}, callback);
+  };
+
+  var _findAndUpdate = function _findAndUpdate(fields, callback){
+    return _model.findOneAndUpdate({}, fields, callback);
+  }
+
   return {
-    schema : ProfileSchema,
-    model  : _model
+    schema        : ProfileSchema,
+    model         : _model,
+    find          : _find,
+    findAndUpdate : _findAndUpdate
   };
 }();
 
