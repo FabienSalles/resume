@@ -7,18 +7,18 @@ angular.module('wwwApp')
 
 	$http.get('/api/profiles').success(function(user) {
 		$scope.user = {
-			email: user.profile.email,
-			name: user.profile.lastName,
-			firstname: user.profile.fisrtName,
-			phone: user.profile.phoneNumber,
-			intitule: user.profile.jobName,
-			age: user.profile.age,
-			city: user.profile.city,
-			cp: user.profile.cp,
-			avatar: user.profile.avatar,
-			facebook: user.profile.facebook,
-			twitter: user.profile.twitter,
-			google: user.profile.google
+			email: user.email,
+			name: user.lastName,
+			firstname: user.fisrtName,
+			phone: user.phoneNumber,
+			intitule: user.jobName,
+			age: user.age,
+			city: user.city,
+			cp: user.cp,
+			avatar: user.avatar,
+			facebook: user.facebook,
+			twitter: user.twitter,
+			google: user.google
 		};
 		
     });
