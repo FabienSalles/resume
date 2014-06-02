@@ -25,9 +25,15 @@ describe('Controller: EditCtrl', function () {
     expect($scope.avatarChanged).toBeDefined();
   });
 
-  it('should call /api/avatar on $scope.avatarChanged()', inject(function($httpBackend) {
-    $scope.avatarChanged();
-    $httpBackend.expectPOST('/api/avatar').respond();
+  it('should call /api/profiles on $scope.updateName()', inject(function($httpBackend) {
+    $scope.updateName();
+    $httpBackend.expectPUT('/api/profiles').respond();
+    $httpBackend.flush();
+  }));
+
+  it('should call /api/profiles on $scope.updateFirstname()', inject(function($httpBackend) {
+    $scope.updateFirstname();
+    $httpBackend.expectPUT('/api/profiles').respond();
     $httpBackend.flush();
   }));
 

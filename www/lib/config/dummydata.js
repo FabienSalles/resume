@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose'),
   User = mongoose.model('User'),
-  Thing = mongoose.model('Thing');
+  Thing = mongoose.model('Thing'),
+  Profile = mongoose.model('Profile');
 
 /**
  * Populate database with sample application data
@@ -45,6 +46,16 @@ User.find({}).remove(function() {
     password: 'test'
   }, function() {
       console.log('finished populating users');
+    }
+  );
+});
+
+// Create user profile
+Profile.find({}).remove(function() {
+  Profile.create({
+    email: 'email@fai.com'
+  }, function() {
+      console.log('finished populating profiles');
     }
   );
 });

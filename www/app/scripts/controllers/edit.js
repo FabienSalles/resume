@@ -3,28 +3,48 @@
 angular.module('wwwApp')
 .controller('EditCtrl', function ($scope, $http, $location) {
 
+	$scope.user = {};
 
-	$scope.user = {
-		id: 1,
-		name: 'Renaud',
-		firstname: 'Yves',
-		profil: 'Je suis motivé!',
-		experience: 'Je suis un expert!',
-		facebook: 'https://www.facebook.fr/',
-		twitter: 'https://www.twitter.fr/',
-		google: 'https://www.google.fr/',
-		//avatar: 'images/avatars/avatar_user.jpg', // TODO le rendre unique
-		skills: [{
-	    	id: 1, name: 'PHP', desc: 'Mes compétences en PHP'
-	    },{
-	    	id: 2, name: 'HTML', desc: 'Mes compétences en HTML'
-	    }],
-	    diplomes: [{
-	    	id: 1,
-	    	name: 'BAC STI',
-	    	desc: 'J\'ai passé mon bac au lycée.'
-	    }]
-	};
+	$http.get('/api/profiles').success(function(user) {
+		$scope.user = {
+			email: user.profile.email,
+			name: user.profile.lastName,
+			firstname: user.profile.fisrtName,
+			phone: user.profile.phoneNumber,
+			intitule: user.profile.jobName,
+			age: user.profile.age,
+			city: user.profile.city,
+			cp: user.profile.cp,
+			avatar: user.profile.avatar,
+			facebook: user.profile.facebook,
+			twitter: user.profile.twitter,
+			google: user.profile.google
+		};
+		
+    });
+
+
+	// $scope.user = {
+	// 	id: 1,
+	// 	name: 'Renaud',
+	// 	firstname: 'Yves',
+	// 	profil: 'Je suis motivé!',
+	// 	experience: 'Je suis un expert!',
+	// 	facebook: 'https://www.facebook.fr/',
+	// 	twitter: 'https://www.twitter.fr/',
+	// 	google: 'https://www.google.fr/',
+	// 	//avatar: 'images/avatars/avatar_user.jpg', // TODO le rendre unique
+	// 	skills: [{
+	//     	id: 1, name: 'PHP', desc: 'Mes compétences en PHP'
+	//     },{
+	//     	id: 2, name: 'HTML', desc: 'Mes compétences en HTML'
+	//     }],
+	//     diplomes: [{
+	//     	id: 1,
+	//     	name: 'BAC STI',
+	//     	desc: 'J\'ai passé mon bac au lycée.'
+	//     }]
+	// };
 
 
 
@@ -34,16 +54,45 @@ angular.module('wwwApp')
 
 	// A deplacer dans un model User
 	$scope.updateName = function(data) {
-		$scope.user.name = data;
+		$http.put('/api/profiles', { 'lastName' : data });
 	};
 
 	$scope.updateFirstname = function(data) {
-		$scope.user.firstname = data;
+		$http.put('/api/profiles', { 'firstName' : data });
 	};
 
 	$scope.updateIntitule = function(data) {
-		$scope.user.intitule = data;
+		$http.put('/api/profiles', { 'jobName' : data });
 	};
+
+	$scope.updateAddresse = function(data) {
+		$http.put('/api/profiles', { 'adress' : data });
+	};
+
+	$scope.updateCity = function(data) {
+		$http.put('/api/profiles', { 'city' : data });
+	};
+
+	$scope.updateCP = function(data) {
+		$http.put('/api/profiles', { 'cp' : data });
+	};
+
+	$scope.updatePhone = function(data) {
+		$http.put('/api/profiles', { 'phoneNumber' : data });
+	};
+
+	$scope.updateFacebook = function(data) {
+		$http.put('/api/profiles', { 'facebook' : data });
+	};
+
+	$scope.updateGoogle = function(data) {
+		$http.put('/api/profiles', { 'google' : data });
+	};
+
+	$scope.updateTwitter = function(data) {
+		$http.put('/api/profiles', { 'twitter' : data });
+	};
+
 
 
 
@@ -91,12 +140,15 @@ angular.module('wwwApp')
     	$scope.user.diplomes.splice(index, 1);
   	};
 
-  	$scope.avatarChanged = function(files) {
+  	$scope.avatarChanged = function(file) {
 
 		var fd = new FormData();
 
 	    // Recupere le premier fichier
-	    fd.append('file', files[0]);
+	    fd.append('file', file);
+
+
+	    console.log(file);
 
 	    $http.post('/api/avatar', fd, {
 	        withCredentials: true,
@@ -107,6 +159,10 @@ angular.module('wwwApp')
 	    }).error(function(){
 	    	console.log('ERROR UPLOAD');
 	    });
+
+
+	    // MAJ le model
+    	//$http.put('/api/profiles', { 'avatar' : 'images/avatar.jpg' });
 
 	};
 

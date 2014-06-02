@@ -5,16 +5,15 @@
           <form action="avatar" method="POST" enctype="multipart/form-data">
             <label for="avatar" class="avatar">
               <!-- <img fallback-src="images/avatar.jpg" ng-src="{{ user.avatar }}" alt="Avatar" class="thumbnail img-responsive"> -->
-              <img ng-model="user.avatar" src="{{ user.avatar || 'images/avatar.jpg' }}" alt="Avatar" class="thumbnail img-responsive">
+              <img ng-model="user.avatar" src="{{ user.avatar }}" alt="Avatar" class="thumbnail img-responsive">
             </label>
 
-            <input type="file" id="avatar" name="useravatar" class="hide" onchange="angular.element(this).scope().avatarChanged(this.files)">
+            <input type="file" id="avatar" name="useravatar" class="hide" onchange="angular.element(this).scope().avatarChanged(this.files[0])">
           </form>
         </div>
       
     </div>
-    <div class="col-sm-6 col-xs-12">    
-
+    <div class="col-sm-6 col-xs-12">
         <a href="#" editable-text="user.name" onbeforesave="updateName($data)">
           <h2 class="inline" ng-model="user.name">{{ user.name || "Nom" }} </h2>
         </a>

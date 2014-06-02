@@ -11,9 +11,16 @@ var Profile = function() {
   var ProfileSchema = new Schema({
     firstName: String,
     lastName: String,
+    adress: String,
     phoneNumber: String,
     jobName: String,
     description: String,
+    city: String,
+    cp: String,
+    facebook: { type: String, default: 'facebook.com/' },
+    twitter: { type: String, default: 'twitter.com/' },
+    google: { type: String, default: 'plus.google.com/' },
+    avatar: { type: String, default: 'images/avatar.jpg' },
     age: { type: Number, min: 18, max: 65 },
     email: { type: String, unique: true, required: true },
     createdAt: { type: Date, default: Date.now },
@@ -30,11 +37,18 @@ var Profile = function() {
       return {
         'firstName': this.firstName,
         'lastName': this.lastName,
+        'adress': this.adress,
         'phoneNumber': this.phoneNumber,
         'jobName' : this.jobName,
+        'avatar': this.avatar,
+        'city': this.city,
+        'cp': this.cp,
         'description' : this.description,
         'age' : this.age,
-        'email' : this.email
+        'email' : this.email,
+        'facebook' : this.facebook,
+        'twitter' : this.twitter,
+        'google' : this.google
       };
     })
   ;
