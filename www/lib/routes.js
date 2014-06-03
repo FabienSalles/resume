@@ -47,7 +47,7 @@ module.exports = function(app) {
 
   app
     .post('/api/degrees', degrees.create)
-    .delete('/api/degrees/:id', degrees.delete)
+    .delete('/api/degrees/:id', degrees.delete);
 
   app.post('/api/languages', languages.create);
 
@@ -56,7 +56,7 @@ module.exports = function(app) {
 
   app.post('/api/avatar', edit.avatar);
 
-  app.get('/export', pdf.export);
+  app.get('/pdf', pdf.export);
 
   // All other routes to use Angular routing in app/scripts/app.js
   app.get('/partials/*', index.partials);

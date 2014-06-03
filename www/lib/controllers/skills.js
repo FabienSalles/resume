@@ -14,7 +14,7 @@ exports.create = function (req, res, next) {
       var skill = profile.skills.create(req.body);
       profile.skills.push(skill);
       profile.save(function(err, profile){
-        console.log(err, profile);
+        //console.log(err, profile);
         if (err) return next(new Error('Failed to save Profile'));
       });
 
@@ -36,7 +36,8 @@ exports.delete = function (req, res, next) {
     }
 
     if (profile) {
-      console.log(profile);
+      //console.log(profile);
+      console.log(req.params);
 
       var doc = profile.skills.id(req.params.id).remove();
       console.log(doc);

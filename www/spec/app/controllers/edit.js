@@ -25,21 +25,56 @@ describe('Controller: EditCtrl', function () {
     expect($scope.avatarChanged).toBeDefined();
   });
 
-  it('should call /api/profiles on $scope.updateName()', inject(function($httpBackend) {
-    $scope.updateName();
-    $httpBackend.expectPUT('/api/profiles').respond();
-    $httpBackend.flush();
-  }));
+  it('should set updateLastName function', function() {
+    expect($scope.updateLastName).toBeDefined();
+  });
 
-  it('should call /api/profiles on $scope.updateFirstname()', inject(function($httpBackend) {
-    $scope.updateFirstname();
-    $httpBackend.expectPUT('/api/profiles').respond();
-    $httpBackend.flush();
-  }));
-  // it('should call /api/avatar on $scope.avatarChanged()', inject(function($httpBackend) {
-  //   $scope.avatarChanged();
-  //   $httpBackend.expectPOST('/api/avatar').respond();
-  //   $httpBackend.flush();
-  // }));
+  it('should set updateFirstname function', function() {
+    expect($scope.updateFirstname).toBeDefined();
+  });
+
+  it('should set updateCity function', function() {
+    expect($scope.updateCity).toBeDefined();
+  });
+
+  it('should set updatePhoneNumber function', function() {
+    expect($scope.updatePhoneNumber).toBeDefined();
+  });
+
+  it('should set updateJobName function', function() {
+    expect($scope.updateJobName).toBeDefined();
+  });
+
+  it('should set updateAdress function', function() {
+    expect($scope.updateAdress).toBeDefined();
+  });
+
+  it('should set updateCP function', function() {
+    expect($scope.updateCP).toBeDefined();
+  });
+
+  it('should set updateGoogle function', function() {
+    expect($scope.updateGoogle).toBeDefined();
+  });
+
+  it('should set updateTwitter function', function() {
+    expect($scope.updateTwitter).toBeDefined();
+  });
+
+  it('should set updateFacebook function', function() {
+    expect($scope.updateFacebook).toBeDefined();
+  });
+
+  it('should set updateDescription function', function() {
+    expect($scope.updateDescription).toBeDefined();
+  });
+
+  it('should set addNameSkill function', function() {
+    expect($scope.addNameSkill).toBeDefined();
+  });
+
+  it('should set addDescriptionSkill function', function() {
+    expect($scope.addDescriptionSkill).toBeDefined();
+  });
 
 });

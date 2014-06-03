@@ -24,6 +24,7 @@ var Profile = function() {
     email: { type: String, unique: true, required: true },
     skills : [{
       name: { type: String, unique: true, required: true },
+      description: String,
       level: { type: Number, min: 0, max: 5 },
     }],
     experiences: [{
@@ -73,7 +74,9 @@ var Profile = function() {
         'email' : this.email,
         'facebook' : this.facebook,
         'twitter' : this.twitter,
-        'google' : this.google
+        'google' : this.google,
+        'skills': this.skills,
+        'degrees': this.degrees
       };
     })
   ;

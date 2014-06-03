@@ -1,83 +1,39 @@
 'use strict';
 
+var NodePDF = require('nodepdf');
 
-//var wkhtml = require('node-wkhtml');
-var path = require('path');
-var mime = require('mime');
-var fs = require('fs');
-var htmlToPdf = require('wkhtmltopdf');
-var createWriteStream = require('fs').createWriteStream;
-
-
-
-/**
- * Login
- */
 exports.export = function (req, res) {
 
-  console.log("express exportpdf");
+    console.log("express exportpdf");  
 
+    // last argument is optional, sets the width and height for the viewport to render the pdf from. (see additional options)
+    var pdf = new NodePDF('http://20.20.20.15:9000/show', 'cv.pdf', {
+        'viewportSize': {
+            'width': 1440,
+            'height': 900
+        }, 
+        'args': '--debug=true'
+    });
 
+    pdf.on('error', function(msg){
+        console.log(msg);
+    });
 
-    // var result = htmlToPdf(res.render('pdf/index', { title: 'CV nom' })).pipe(res);
+    pdf.on('done', function(pathToFile){
+        console.log(pathToFile);
+    });
 
-  
-    //   res.setHeader('Content-Type', 'application/pdf');
-    //   res.setHeader("Content-Disposition", "attachment; filename=" + "MonCV.pdf");
-    //   res.end(result, 'binary');
+    // listen for stdout from phantomjs
+    pdf.on('stdout', function(stdout){
+         // handle
+    });
 
-  // res.send(html);
+    // listen for stderr from phantomjs
+    pdf.on('stderr', function(stderr){
+        // handle
+    });
 
-  // var user = req.body;
+    res.download('./cv.pdf');
 
-  //console.log(typeof res);
-
-  // On recupere toute les infos de l'utilisateur qu'on passe a la vue
-  //res.render('pdf/index', { title: 'CV nom' }, function(err, html) {
-
-      //htmlToPdf(html, { output: 'temp.pdf' } ).pipe(res);
-
-      //res.setHeader('Content-Type', 'application/pdf');
-      //res.setHeader("Content-Disposition", "attachment; filename=" + "MonCV.pdf");
-      //htmlToPdf(html).pipe(res);
-      
-
-      //console.log(html);
-
-//    htmlToPdf(html, { output: 'temp.pdf' } ).pipe(res);
-
-    // var file = 'temp.pdf';
-    // var filename = path.basename(file);
-    // var mimetype = mime.lookup(file);
-
-    // res.setHeader('Content-disposition', 'attachment; filename=' + "MonCV.pdf");
-    // res.setHeader('Content-type', mimetype);
-
-    // var filestream = fs.createReadStream(file);
-    // //console.log(res);
-    // filestream.pipe(res);
-
-
-    // });
-
-
-
-
-
-
-
-   // res.download("temp.pdf", "MonCV.pdf", function(err){
-   //  console.log("dfsd");
-   //       if (err) {
-   //          // handle error, keep in mind the response may be partially-sent
-   //          // so check res.headerSent
-   //          console.log(err);
-   //        } else {
-   //          // decrement a download credit etc
-   //        }
-   //    });
-
-
-  res.download('temp.pdf');
 
 };

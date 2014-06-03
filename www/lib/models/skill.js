@@ -12,6 +12,7 @@ var Skill = function() {
    */
   var SkillSchema = new Schema({
     name: String,
+    description: String,
     level: { type: Number, min: 0, max: 5 },
     // domain: { type: Schema.Types.ObjectId, ref: 'DomainSkill' },
     createdAt: { type: Date, default: Date.now },
@@ -26,6 +27,7 @@ var Skill = function() {
       console.log(this);
       return {
         'name': this.name,
+        'description': this.description,
         'level': this.level,
         // 'domain' : this.domain,
       };

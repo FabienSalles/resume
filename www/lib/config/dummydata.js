@@ -53,7 +53,41 @@ User.find({}).remove(function() {
 // Create user profile
 Profile.find({}).remove(function() {
   Profile.create({
-    email: 'email@fai.com'
+    email: 'email@fai.com',
+    skills: [{
+      name: 'Une competence',
+      description: 'La description de la compétence'
+    }]
+  }, function() {
+      console.log('finished populating profiles');
+    }
+  );
+});
+
+
+
+Profile.find({}).remove(function() {
+  Profile.create({
+    email: 'ys.renaud@gmail.com',
+    lastName: 'renaud',
+    firstName: 'Yves',
+    jobName: 'Titre du CV',
+    adress: '7 Résidence du bois de l\'étang',
+    cp: 78320,
+    phoneNumber: 0786136738,
+    skills: [{
+      name: 'PHP',
+      description: 'Mes compétences en PHP'
+    }, {
+      name: 'JavaScript',
+      description: 'Mes compétences en JavaScript'
+    }],
+    degrees: [{
+      name: 'BAC STI',
+      description: 'BAC STI genie electrotechnique',
+      startAt: 2008,
+      endAt: 2009
+    }]
   }, function() {
       console.log('finished populating profiles');
     }

@@ -6,56 +6,15 @@ angular.module('wwwApp')
 	$scope.user = {};
 
 	$http.get('/api/profiles').success(function(user) {
-		$scope.user = {
-			email: user.email,
-			name: user.lastName,
-			firstname: user.fisrtName,
-			phone: user.phoneNumber,
-			intitule: user.jobName,
-			age: user.age,
-			city: user.city,
-			adress: user.adress,
-			cp: user.cp,
-			avatar: user.avatar,
-			facebook: user.facebook,
-			twitter: user.twitter,
-			google: user.google,
-			description: user.description
-		};
-		
+		$scope.user = user;
     });
-
-
-	// $scope.user = {
-	// 	id: 1,
-	// 	name: 'Renaud',
-	// 	firstname: 'Yves',
-	// 	profil: 'Je suis motivé!',
-	// 	experience: 'Je suis un expert!',
-	// 	facebook: 'https://www.facebook.fr/',
-	// 	twitter: 'https://www.twitter.fr/',
-	// 	google: 'https://www.google.fr/',
-	// 	//avatar: 'images/avatars/avatar_user.jpg', // TODO le rendre unique
-	// 	skills: [{
-	//     	id: 1, name: 'PHP', desc: 'Mes compétences en PHP'
-	//     },{
-	//     	id: 2, name: 'HTML', desc: 'Mes compétences en HTML'
-	//     }],
-	//     diplomes: [{
-	//     	id: 1,
-	//     	name: 'BAC STI',
-	//     	desc: 'J\'ai passé mon bac au lycée.'
-	//     }]
-	// };
-
 
 
 	$scope.errorMessage = '';
 
 
-
 	// A deplacer dans un model User
-	$scope.updateName = function(data) {
+	$scope.updateLastName = function(data) {
 		$http.put('/api/profiles', { 'lastName' : data });
 	};
 
@@ -63,11 +22,11 @@ angular.module('wwwApp')
 		$http.put('/api/profiles', { 'firstName' : data });
 	};
 
-	$scope.updateIntitule = function(data) {
+	$scope.updateJobName = function(data) {
 		$http.put('/api/profiles', { 'jobName' : data });
 	};
 
-	$scope.updateAddresse = function(data) {
+	$scope.updateAdress = function(data) {
 		$http.put('/api/profiles', { 'adress' : data });
 	};
 
@@ -79,7 +38,7 @@ angular.module('wwwApp')
 		$http.put('/api/profiles', { 'cp' : data });
 	};
 
-	$scope.updatePhone = function(data) {
+	$scope.updatePhoneNumber = function(data) {
 		$http.put('/api/profiles', { 'phoneNumber' : data });
 	};
 
@@ -103,6 +62,14 @@ angular.module('wwwApp')
 		$http.put('/api/profiles', { 'email' : data });
 	};
 
+	$scope.addNameSkill = function(data, idSkill) {
+		console.log(idSkill);
+		$http.put('/api/skills', { 'id': idSkill, 'name' : data });
+	};
+
+	$scope.addDescriptionSkill = function(data, idSkill) {
+		$http.put('/api/skills', { 'id': idSkill, 'description' : data });
+	};
 
 
 
@@ -123,16 +90,6 @@ angular.module('wwwApp')
   		$http.get('/export');
   	};
 
-
-  	// Ajoute un champ pour saisir une compétence
-	$scope.addSkill = function() {
-		$scope.inserted = {
-		  id: $scope.user.skills.length + 1,
-		  name: ''
-		};
-		$scope.user.skills.push($scope.inserted);
-	};
-
 	// Ajoute un champ pour saisir un diplome
 	$scope.addDiplome = function() {
 		$scope.inserted = {
@@ -142,8 +99,27 @@ angular.module('wwwApp')
 		$scope.user.diplomes.push($scope.inserted);
 	};
 
-	$scope.removeSkill = function(index) {
-    	$scope.user.skills.splice(index, 1);
+
+  	// Ajoute un champ pour saisir une compétence
+	$scope.addSkill = function() {
+		var skill = $http.post('/api/skills', { 'name' : 'Une compétence' });
+		$scope.user.skills.push(skill);
+	};
+
+
+	$scope.removeSkill = function(skill) {
+	  	$http.delete('/api/skills/' + skill._id).
+        success(function(data,status){
+            console.log('skill deleted');
+        }).
+        error(function(err){
+            console.log('error delete skill');
+        });
+
+        var index = $scope.user.skills.indexOf(skill);
+        if (index > -1) {
+    		$scope.user.skills.splice(index, 1);
+		}
   	};
 
   	$scope.removeDiplome = function(index) {

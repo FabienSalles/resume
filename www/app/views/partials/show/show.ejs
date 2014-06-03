@@ -48,9 +48,9 @@
     <h3 class="title-section">Diplomes</h3>
   </div>
   <div class="col-xs-12 col-sm-8">
-    <div ng-repeat="diplome in user.diplomes">
+    <div ng-repeat="diplome in user.degrees">
       <h3 class="title-item">{{ diplome.name }}</h3>
-      <span class="pull-right">{{ diplome.year1 }} - {{ diplome.year2 }}</span>
+      <span class="pull-right">{{ diplome.startAt }} - {{ diplome.endAt }}</span>
       <hr>
       <p>{{ diplome.description }}</p>
     </div>

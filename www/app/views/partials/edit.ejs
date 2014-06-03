@@ -34,12 +34,12 @@
         </div>
         <div class="col-xs-12 col-sm-8">         
 
-          <div class="blocEdition" ng-repeat="skill in user.skills">
+          <div class="blocEdition" ng-model="user.skills" ng-repeat="skill in user.skills">
             
-              <h3 editable-text="skill.name" onbeforesave="checkName($data, skill.id)" class="title-item">{{ skill.name || 'Nom compétence' }}</h3>
+              <h3 editable-text="skill.name" onbeforesave="addNameSkill($data, skill._id)" class="title-item">{{ skill.name || 'Nom compétence' }}</h3>
               <hr>
-              <p editable-textarea="skill.desc" e-rows="5" e-cols="60">{{ skill.desc || 'Description'}}</p>
-              <button class="btn btn-danger" ng-click="removeSkill()">Supprimer cette compétence</button>
+              <p editable-textarea="skill.description" e-rows="5" e-cols="60" onbeforesave="addDescriptionSkill($data, skill._id)">{{ skill.description || 'Description'}}</p>
+              <button class="btn btn-danger" ng-click="removeSkill(skill)">Supprimer cette compétence</button>
 
           </div>
 
@@ -58,14 +58,14 @@
 
 
 
-         <div class="blocEdition" ng-repeat="diplome in user.diplomes">
+         <div class="blocEdition" ng-repeat="diplome in user.degrees">
             
-              <h3 editable-text="diplome.name" onbeforesave="checkName($data, diplome.id)" class="title-item">{{ diplome.name || 'Nom diplôme' }}</h3>
-              <span editable-text="diplome.year2" class="pull-right">&nbsp;- {{ diplome.year2 || 'Année fin' }}</span>
-              <span editable-text="diplome.year1" class="pull-right">{{ diplome.year1 || 'Année début' }}</span>
+              <h3 editable-text="diplome.name" onbeforesave="checkName($data, diplome._id)" class="title-item">{{ diplome.name || 'Nom diplôme' }}</h3>
+              <span editable-text="diplome.endAt" class="pull-right">&nbsp;- {{ diplome.endAt || 'Année fin' }}</span>
+              <span editable-text="diplome.startAt" class="pull-right">{{ diplome.startAt || 'Année début' }}</span>
               <hr>
-              <p editable-textarea="diplome.desc" e-rows="5" e-cols="60">{{ diplome.desc || 'Description'}}</p>
-              <button class="btn btn-danger" ng-click="removeDiplome()">Supprimer ce diplôme</button>
+              <p editable-textarea="diplome.description" e-rows="5" e-cols="60">{{ diplome.description || 'Description'}}</p>
+              <button class="btn btn-danger" ng-click="removeDiplome(diplome._id)">Supprimer ce diplôme</button>
 
           </div>
 

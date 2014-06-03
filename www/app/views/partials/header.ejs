@@ -4,7 +4,6 @@
         <div class="image-upload">
           <form action="avatar" method="POST" enctype="multipart/form-data">
             <label for="avatar" class="avatar">
-              <!-- <img fallback-src="images/avatar.jpg" ng-src="{{ user.avatar }}" alt="Avatar" class="thumbnail img-responsive"> -->
               <img ng-model="user.avatar" src="{{ user.avatar }}" alt="Avatar" class="thumbnail img-responsive">
             </label>
 
@@ -14,23 +13,23 @@
       
     </div>
     <div class="col-sm-6 col-xs-12">
-        <a href="#" editable-text="user.name" onbeforesave="updateName($data)">
-          <h2 class="inline" ng-model="user.name">{{ user.name || "Nom" }} </h2>
+        <a href="#" editable-text="user.lastName" onbeforesave="updateLastName($data)">
+          <h2 class="inline" ng-model="user.lastName">{{ user.lastName || "Nom" }} </h2>
         </a>
-        <a href="#" editable-text="user.firstname" onbeforesave="updateFirstname($data)">
-          <h2 class="inline">{{ user.firstname || "Prénom" }}</h2>
+        <a href="#" editable-text="user.firstName" onbeforesave="updateFirstname($data)">
+          <h2 class="inline">{{ user.firstName || "Prénom" }}</h2>
         </a>
         <div>
-          <a href="#" editable-text="user.intitule" onbeforesave="updateIntitule($data)">
-          <h3>{{ user.intitule || "Intitulé" }}</h3>
+          <a href="#" editable-text="user.jobName" onbeforesave="updateJobName($data)">
+          <h3>{{ user.jobName || "Intitulé" }}</h3>
         </a>
         </div>
     </div>
     <div class="col-sm-4 col-xs-12">
       <address>
-        <strong>{{ user.name || "Nom" }} </strong><strong>{{ user.firstname || "Prénom" }}</strong><br>
-        <a href="#" editable-text="user.address" onbeforesave="updateAddresse($data)">
-          {{ user.address || "Adresse" }}
+        <strong>{{ user.lastName || "Nom" }} </strong><strong>{{ user.firstName || "Prénom" }}</strong><br>
+        <a href="#" editable-text="user.adress" onbeforesave="updateAdress($data)">
+          {{ user.adress || "Adresse" }}
         </a><br>
         <a href="#" editable-text="user.city" onbeforesave="updateCity($data)">
           {{ user.city || "Ville" }}
@@ -39,8 +38,8 @@
           {{ user.cp || "CP" }}
         </a><br>
         <i class="fa fa-phone"></i> 
-        <a href="#" editable-text="user.phone" onbeforesave="updatePhone($data)">
-          {{ user.phone || "Téléphone" }}
+        <a href="#" editable-text="user.phoneNumber" onbeforesave="updatePhoneNumber($data)">
+          {{ user.phoneNumber || "Téléphone" }}
         </a><br>
         <i class="fa fa-envelope"></i> 
         <a href="#" editable-text="user.email" onbeforesave="updateEmail($data)">
@@ -51,9 +50,6 @@
 		<a editable-text="user.facebook" href="#" class="social-icon soc-facebook animated fadeInDown animation-delay-3 socialEdit" onbeforesave="updateFacebook($data)"><i class="fa fa-facebook"></i></a>
 		<a editable-text="user.twitter"href="#" class="social-icon soc-twitter animated fadeInDown animation-delay-3 socialEdit" onbeforesave="updateTwitter($data)"><i class="fa fa-twitter"></i></a>
 		<a editable-text="user.google" href="#" class="social-icon soc-google-plus animated fadeInDown animation-delay-3 socialEdit" onbeforesave="updateGoogle($data)"><i class="fa fa-google-plus"></i></a>
-
-    <!-- <button ng-click="exportpdf()">Exporter</button> -->
-    <!-- <a href="/export">Exporter</a> -->
     
 	</div>
 </div>
