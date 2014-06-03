@@ -28,6 +28,12 @@ var Profile = function() {
       //   name: String
       // }]
     }],
+    degrees: [{
+      name: String,
+      description: String,
+      startAt: Date,
+      endAt: Date,
+    }],
     pastimes: [{
       name: String
     }],

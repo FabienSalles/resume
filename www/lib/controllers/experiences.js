@@ -24,6 +24,34 @@ exports.create = function (req, res, next) {
   });
 };
 
+/**
+ * delete experiences
+ */
+exports.delete = function (req, res, next) {
+  Profile.find(function (err, profile) {
+    if (err) {
+      console.log(err);
+      return next(new Error('Failed to load Profile'));
+    }
+
+    if (profile) {
+      console.log(profile);
+
+      var doc = profile.experiences.id(req.params.id).remove();
+      console.log(doc);
+      profile.save(function (err, profile) {
+        if (err) {
+          console.log(err);
+          return next(new Error('Failed to load Profile'));
+        } else {
+          res.send(200,'');
+        }
+      });
+    } else {
+      res.send(404, 'PROFILE_NOT_FOUND');
+    }
+  });
+};
 // /**
 //  *  Get profile of specified Profile
 //  */

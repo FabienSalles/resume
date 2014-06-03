@@ -4,21 +4,20 @@ var mongoose = require('mongoose'),
     Profile = require('../models/profile');
 
 /**
- * Create skill
+ * Create degrees
  */
 exports.create = function (req, res, next) {
   Profile.find(function (err, profile) {
     if (err) return next(new Error('Failed to load Profile'));
 
     if (profile) {
-      var skill = profile.skills.create(req.body);
-      profile.skills.push(skill);
+      var degree = profile.degrees.create(req.body);
+      profile.degrees.push(degree);
       profile.save(function(err, profile){
         console.log(err, profile);
         if (err) return next(new Error('Failed to save Profile'));
       })
-
-      res.send(skill);
+      res.send(degree);
     } else {
       res.send(404, 'PROFILE_NOT_FOUND');
     }
@@ -26,7 +25,7 @@ exports.create = function (req, res, next) {
 };
 
 /**
- * delete skill
+ * delete degrees
  */
 exports.delete = function (req, res, next) {
   Profile.find(function (err, profile) {
@@ -38,7 +37,7 @@ exports.delete = function (req, res, next) {
     if (profile) {
       console.log(profile);
 
-      var doc = profile.skills.id(req.params.id).remove();
+      var doc = profile.degrees.id(req.params.id).remove();
       console.log(doc);
       profile.save(function (err, profile) {
         if (err) {
@@ -53,37 +52,3 @@ exports.delete = function (req, res, next) {
     }
   });
 };
-
-// /**
-//  *  Get profile of specified Profile
-//  */
-// exports.show = function (req, res, next) {
-
-//   Profile.find(function (err, profile) {
-//     console.log(profile);
-//     if (err) return next(new Error('Failed to load Profile'));
-
-//     if (profile) {
-//       res.send({ profile: profile.get('ProfileInfo') });
-//     } else {
-//       res.send(404, 'PROFILE_NOT_FOUND');
-//     }
-//   });
-// };
-
-// *
-//  *  Update profile of specified Profile
-
-// exports.update = function (req, res, next) {
-
-//   Profile.findAndUpdate(req.body, function (err, profile) {
-//     console.log(profile);
-//     if (err) return next(new Error('Failed to load Profile'));
-
-//     if (profile) {
-//       res.send({ profile: profile.get('ProfileInfo') });
-//     } else {
-//       res.send(404, 'PROFILE_NOT_FOUND');
-//     }
-//   });
-// };
