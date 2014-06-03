@@ -54,6 +54,33 @@ exports.delete = function (req, res, next) {
   });
 };
 
+/**
+ * update skills
+ */
+exports.update = function (req, res, next) {
+  console.log(req.params.id, req.body);
+  Profile.find(function (err, profile) {
+    if (err) {
+      console.log(err);
+      return next(new Error('Failed to load Profile'));
+    }
+
+    if (profile) {
+      console.log(profile);
+      Profile.model.update({_id: profile._id, "skills._id": req.params.id }, {$set:req.body},function(err, profile) {
+        if (err) {
+          console.log(err);
+          return next(new Error('Failed to update skills'));
+        } else {
+          res.send(200,profile.get('ProfileInfo'));
+        }
+      });
+    } else {
+      res.send(404, 'PROFILE_NOT_FOUND');
+    }
+  });
+};
+
 // /**
 //  *  Get profile of specified Profile
 //  */

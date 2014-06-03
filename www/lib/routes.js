@@ -35,11 +35,13 @@ module.exports = function(app) {
 
   app
     .post('/api/skills', skills.create)
+    .put('/api/skiils/:id', skills.update)
     .delete('/api/skills/:id', skills.delete)
   ;
 
   app
     .post('/api/experiences', experiences.create)
+    .put('/api/experiences/:id', experiences.update)
     .delete('/api/experiences/:id', experiences.delete)
   ;
 
