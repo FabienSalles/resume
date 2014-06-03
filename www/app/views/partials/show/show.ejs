@@ -1,0 +1,64 @@
+<div class="row bar">
+  <div class="col-xs-12">
+  </div>
+</div>
+
+
+	 <% include header %>
+
+
+<div class="row profil">
+  <div class="col-xs-12 col-sm-4">
+    <h3 class="title-section">Profil</h3>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <p>{{ user.description }}</p>
+  </div>
+
+</div>
+
+
+<div class="row profil">
+  <div class="col-xs-12 col-sm-4">
+    <h3 class="title-section">Experiences</h3>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <p>{{ user.experience }}</p>
+  </div>
+
+</div>
+
+<div class="row profil">
+  <div class="col-xs-12 col-sm-4">
+    <h3 class="title-section">Compétences techniques</h3>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+      <div ng-repeat="skill in user.skills">
+        <h3 class="title-item">{{ skill.name }}</h3>
+        <hr>
+        <p>{{ skill.description }}</p>
+      </div>
+  </div>
+
+</div>
+
+
+<div class="row profil">
+  <div class="col-xs-12 col-sm-4">
+    <h3 class="title-section">Diplomes</h3>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <div ng-repeat="diplome in user.diplomes">
+      <h3 class="title-item">{{ diplome.name }}</h3>
+      <span class="pull-right">{{ diplome.year1 }} - {{ diplome.year2 }}</span>
+      <hr>
+      <p>{{ diplome.description }}</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="row bar">
+  <div class="col-xs-12">
+  </div>
+</div>

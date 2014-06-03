@@ -3,11 +3,17 @@
 angular.module('wwwApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': 'Accueil',
       'link': '/'
     }, {
-      'title': 'Settings',
-      'link': '/settings'
+      'title': 'Editer',
+      'link': '/edit',
+    }, {
+      'title': 'Voir',
+      'link': '/show'
+    },{
+      'title': 'Exporter',
+      'link': '/pdf'
     }];
     
     $scope.logout = function() {

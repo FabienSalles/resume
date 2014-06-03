@@ -10,9 +10,16 @@ var Profile = function() {
   var ProfileSchema = new Schema({
     firstName: String,
     lastName: String,
+    adress: String,
     phoneNumber: String,
     jobName: String,
     description: String,
+    city: String,
+    cp: String,
+    facebook: { type: String, default: 'https://facebook.com/' },
+    twitter: { type: String, default: 'https://twitter.com/' },
+    google: { type: String, default: 'https://plus.google.com/' },
+    avatar: { type: String, default: 'images/avatar.jpg' },
     age: { type: Number, min: 18, max: 65 },
     email: { type: String, unique: true, required: true },
     skills : [{
@@ -55,11 +62,18 @@ var Profile = function() {
       return {
         'firstName': this.firstName,
         'lastName': this.lastName,
+        'adress': this.adress,
         'phoneNumber': this.phoneNumber,
         'jobName' : this.jobName,
+        'avatar': this.avatar,
+        'city': this.city,
+        'cp': this.cp,
         'description' : this.description,
         'age' : this.age,
-        'email' : this.email
+        'email' : this.email,
+        'facebook' : this.facebook,
+        'twitter' : this.twitter,
+        'google' : this.google
       };
     })
   ;
@@ -84,7 +98,7 @@ var Profile = function() {
 
   var _findAndUpdate = function _findAndUpdate(fields, callback){
     return _model.findOneAndUpdate({}, fields, callback);
-  }
+  };
 
   return {
     schema        : ProfileSchema,

@@ -5,16 +5,15 @@
           <form action="avatar" method="POST" enctype="multipart/form-data">
             <label for="avatar" class="avatar">
               <!-- <img fallback-src="images/avatar.jpg" ng-src="{{ user.avatar }}" alt="Avatar" class="thumbnail img-responsive"> -->
-              <img ng-model="user.avatar" src="{{ user.avatar || 'images/avatar.jpg' }}" alt="Avatar" class="thumbnail img-responsive">
+              <img ng-model="user.avatar" src="{{ user.avatar }}" alt="Avatar" class="thumbnail img-responsive">
             </label>
 
-            <input type="file" id="avatar" name="useravatar" class="hide" onchange="angular.element(this).scope().avatarChanged(this.files)">
+            <input type="file" id="avatar" name="useravatar" class="hide" onchange="angular.element(this).scope().avatarChanged(this.files[0])">
           </form>
         </div>
       
     </div>
-    <div class="col-sm-6 col-xs-12">    
-
+    <div class="col-sm-6 col-xs-12">
         <a href="#" editable-text="user.name" onbeforesave="updateName($data)">
           <h2 class="inline" ng-model="user.name">{{ user.name || "Nom" }} </h2>
         </a>
@@ -49,12 +48,12 @@
         </a>
       </address>
 
-		<a editable-text="user.facebook" href="#" class="social-icon soc-facebook animated fadeInDown animation-delay-3 socialEdit"><i class="fa fa-facebook"></i></a>
-		<a editable-text="user.twitter"href="#" class="social-icon soc-twitter animated fadeInDown animation-delay-3 socialEdit"><i class="fa fa-twitter"></i></a>
-		<a editable-text="user.google" href="#" class="social-icon soc-google-plus animated fadeInDown animation-delay-3 socialEdit"><i class="fa fa-google-plus"></i></a>
+		<a editable-text="user.facebook" href="#" class="social-icon soc-facebook animated fadeInDown animation-delay-3 socialEdit" onbeforesave="updateFacebook($data)"><i class="fa fa-facebook"></i></a>
+		<a editable-text="user.twitter"href="#" class="social-icon soc-twitter animated fadeInDown animation-delay-3 socialEdit" onbeforesave="updateTwitter($data)"><i class="fa fa-twitter"></i></a>
+		<a editable-text="user.google" href="#" class="social-icon soc-google-plus animated fadeInDown animation-delay-3 socialEdit" onbeforesave="updateGoogle($data)"><i class="fa fa-google-plus"></i></a>
 
     <!-- <button ng-click="exportpdf()">Exporter</button> -->
-    <a href="/export">Exporter</a>
+    <!-- <a href="/export">Exporter</a> -->
     
 	</div>
 </div>

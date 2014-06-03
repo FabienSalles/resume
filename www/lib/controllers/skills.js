@@ -16,7 +16,7 @@ exports.create = function (req, res, next) {
       profile.save(function(err, profile){
         console.log(err, profile);
         if (err) return next(new Error('Failed to save Profile'));
-      })
+      });
 
       res.send(skill);
     } else {

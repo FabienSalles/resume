@@ -30,6 +30,10 @@ var app = angular.module('wwwApp', [
         templateUrl: 'partials/edit',
         controller: 'EditCtrl'
       })
+      .when('/show', {
+        templateUrl: 'partials/show/show',
+        controller: 'ShowCtrl'
+      })
       .when('/export', {
         controller: 'EditCtrl',
         action: 'export'
